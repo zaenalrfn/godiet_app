@@ -7,40 +7,78 @@ class OnboardingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFFCEFEF),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(24.0),
+          padding: const EdgeInsets.symmetric(horizontal: 32.0, vertical: 24.0),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              // Ilustrasi atau gambar onboarding
               Expanded(
-                child: Center(
-                  child: Image.asset(
-                    'assets/images/onboarding.png', // nanti tambah di pubspec.yaml
-                    height: 250,
+                flex: 4, 
+                child: Image.asset('assets/images/banner_onboarding.png'),
+              ),
+              const SizedBox(height: 24),
+              Image.asset(
+                'assets/images/logo_godiet.png',
+                width: 150, 
+              ),
+              const SizedBox(height: 16),
+              const Text(
+                'GoDiet adalah sebuah aplikasi yang\nmemudahkan untuk para wanita\nmemulai program diet harian\nsebagai sarana memulai pola hidup\nsehat',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Colors.black54,
+                  height: 1.5,
+                ),
+              ),
+
+              const Spacer(),
+
+              SizedBox(
+                width: double.infinity, 
+                child: ElevatedButton(
+                  onPressed: () {
+                    
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(
+                      0xFF1A73E8,
+                    ), 
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(
+                        25.0,
+                      ), 
+                    ),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 12,
+                      vertical: 8,
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          'assets/images/icon_google.png',
+                          height: 53.45,
+                          width: 54.36,
+                        ),
+                        const SizedBox(width: 12),
+                        const Text(
+                          'Lanjutkan Dengan Google',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
-              const Text(
-                "Selamat datang di GoDiet!\nTeman diet sehatmu.",
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 20),
-              // ElevatedButton.icon(
-              //   onPressed: () {
-              //     Navigator.pushReplacementNamed(context, AppRoutes.login);
-              //   },
-              //   icon: const Icon(Icons.login),
-              //   label: const Text("Lanjutkan dengan Google"),
-              //   style: ElevatedButton.styleFrom(
-              //     minimumSize: const Size(double.infinity, 50),
-              //     shape: RoundedRectangleBorder(
-              //       borderRadius: BorderRadius.all(Radius.circular(12)),
-              //     ),
-              //   ),
-              // ),
             ],
           ),
         ),
