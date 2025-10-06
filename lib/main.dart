@@ -6,7 +6,7 @@ import 'package:device_preview/device_preview.dart';
 
 void main() => runApp(
   DevicePreview(
-    enabled: !kReleaseMode,
+    enabled: true,
     builder: (context) => GoDietApp(), // Wrap your app
   ),
 );

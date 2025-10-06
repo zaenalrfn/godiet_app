@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 // import '/core/routes/app_routes.dart';
+import '/presentation/pages/onboarding/loading_page.dart';
 
 class OnboardingPage extends StatelessWidget {
   const OnboardingPage({super.key});
@@ -7,7 +8,6 @@ class OnboardingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFFCEFEF),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 32.0, vertical: 24.0),
@@ -15,14 +15,11 @@ class OnboardingPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Expanded(
-                flex: 4, 
+                flex: 4,
                 child: Image.asset('assets/images/banner_onboarding.png'),
               ),
               const SizedBox(height: 24),
-              Image.asset(
-                'assets/images/logo_godiet.png',
-                width: 150, 
-              ),
+              Image.asset('assets/images/logo_godiet.png', width: 150),
               const SizedBox(height: 16),
               const Text(
                 'GoDiet adalah sebuah aplikasi yang\nmemudahkan untuk para wanita\nmemulai program diet harian\nsebagai sarana memulai pola hidup\nsehat',
@@ -37,19 +34,20 @@ class OnboardingPage extends StatelessWidget {
               const Spacer(),
 
               SizedBox(
-                width: double.infinity, 
+                width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
-                    
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const LoadingPage(),
+                      ),
+                    );
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(
-                      0xFF1A73E8,
-                    ), 
+                    backgroundColor: const Color(0xFF1A73E8),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(
-                        25.0,
-                      ), 
+                      borderRadius: BorderRadius.circular(25.0),
                     ),
                   ),
                   child: Padding(
