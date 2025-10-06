@@ -1,8 +1,21 @@
 import 'package:flutter/material.dart';
+import 'dart:async';
+import '/core/routes/app_routes.dart';
 
-class LoadingPage extends StatelessWidget {
+class LoadingPage extends StatefulWidget {
   const LoadingPage({super.key});
 
+  @override
+  State<LoadingPage> createState() => _LoadingPageState();
+}
+class _LoadingPageState extends State<LoadingPage> {
+  @override
+  void initState() {
+    super.initState();
+    Timer(const Duration(seconds: 3), () {
+      Navigator.pushReplacementNamed(context, AppRoutes.setupPage);
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
